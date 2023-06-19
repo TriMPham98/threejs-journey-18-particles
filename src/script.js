@@ -43,7 +43,8 @@ const particlesMaterial = new THREE.PointsMaterial({
   sizeAttenuation: true, // add perspective based on distance from camera
   color: new THREE.Color("#ff88cc"),
   alphaMap: particleTexture,
-  transparent: true
+  transparent: true,
+  alphaTest: 0.001
 });
 
 // Points
