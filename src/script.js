@@ -39,6 +39,7 @@ particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 
 const particlesMaterial = new THREE.PointsMaterial({
   size: 0.1,
   sizeAttenuation: true, // add perspective based on distance from camera
+  color: new THREE.Color("#ff88cc")
 });
 
 // Points
