@@ -26,28 +26,32 @@ const particleTexture = textureLoader.load("/textures/particles/2.png")
  */
 
 // Geometry
-const particlesGeometry = new THREE.BufferGeometry(1, 32, 32);
+const particlesGeometry = new THREE.BufferGeometry();
 const count = 20000;
 
 const positions = new Float32Array(count * 3); // Multiply by 3 since each position has (x, y, z)
+const colors = new Float32Array(count * 3);
 
 for (let i = 0; i < count * 3; i++) { // Multiply by 3 since each position has (x, y, z)
   positions[i] = (Math.random() - 0.5) * 10;
+  colors[i] = Math.random()
 }
 
 particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+particlesGeometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
 // Material
 const particlesMaterial = new THREE.PointsMaterial({
   size: 0.1,
   sizeAttenuation: true, // add perspective based on distance from camera
-  color: new THREE.Color("#ff88cc"),
+  // color: new THREE.Color("#ff88cc"),
   alphaMap: particleTexture,
   transparent: true,
   // alphaTest: 0.001
   // depthTest: false
   depthWrite: false,
-  blending: THREE.AdditiveBlending
+  blending: THREE.AdditiveBlending,
+  vertexColors: true
 });
 
 // Points
