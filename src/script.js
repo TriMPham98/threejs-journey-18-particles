@@ -19,6 +19,8 @@ const scene = new THREE.Scene();
  */
 const textureLoader = new THREE.TextureLoader();
 
+const particleTexture = textureLoader.load("/textures/particles/2.png")
+
 /**
  * Particles
  */
@@ -39,7 +41,8 @@ particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 
 const particlesMaterial = new THREE.PointsMaterial({
   size: 0.1,
   sizeAttenuation: true, // add perspective based on distance from camera
-  color: new THREE.Color("#ff88cc")
+  color: new THREE.Color("#ff88cc"),
+  map: particleTexture
 });
 
 // Points
