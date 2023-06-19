@@ -44,12 +44,20 @@ const particlesMaterial = new THREE.PointsMaterial({
   color: new THREE.Color("#ff88cc"),
   alphaMap: particleTexture,
   transparent: true,
-  alphaTest: 0.001
+  // alphaTest: 0.001
+  depthTest: false
 });
 
 // Points
 const particles = new THREE.Points(particlesGeometry, particlesMaterial);
 scene.add(particles);
+
+// Cube
+const cube = new THREE.Mesh(
+  new THREE.BoxGeometry(),
+  new THREE.MeshBasicMaterial()
+)
+scene.add(cube);
 
 /**
  * Sizes
